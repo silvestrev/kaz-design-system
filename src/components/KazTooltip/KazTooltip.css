@@ -1,0 +1,26 @@
+.kaz-tooltip-anchor { position: relative; display: inline-flex; }
+.kaz-tooltip {
+  --kaz-tt-bg: var(--kaz-tooltip-bg);
+  --kaz-tt-fg: var(--kaz-tooltip-text);
+  --kaz-tt-gap: 0.625rem;
+  position: absolute; z-index: var(--kaz-z-tooltip);
+  width: max-content; max-width: 16rem; padding: 0.5rem 0.75rem;
+  border-radius: var(--kaz-radius-md); background: var(--kaz-tt-bg); color: var(--kaz-tt-fg);
+  box-shadow: var(--kaz-shadow-md);
+  font-size: var(--kaz-text-sm); font-weight: var(--kaz-weight-medium); line-height: var(--kaz-leading-tight);
+  pointer-events: none; opacity: 0; visibility: hidden;
+  transition: opacity var(--kaz-duration-fast) var(--kaz-ease), visibility var(--kaz-duration-fast);
+}
+.kaz-tooltip--open { opacity: 1; visibility: visible; }
+.kaz-tooltip::after { content: ''; position: absolute; border: 6px solid transparent; }
+.kaz-tooltip--light { --kaz-tt-bg: var(--kaz-color-surface); --kaz-tt-fg: var(--kaz-color-text); border: 1px solid var(--kaz-color-border); }
+.kaz-tooltip--subtle { --kaz-tt-bg: var(--kaz-color-surface-hover); --kaz-tt-fg: var(--kaz-color-text-muted); box-shadow: var(--kaz-shadow-sm); }
+
+.kaz-tooltip--top { bottom: calc(100% + var(--kaz-tt-gap)); left: 50%; transform: translateX(-50%); }
+.kaz-tooltip--top::after { top: 100%; left: 50%; transform: translateX(-50%); border-top-color: var(--kaz-tt-bg); }
+.kaz-tooltip--bottom { top: calc(100% + var(--kaz-tt-gap)); left: 50%; transform: translateX(-50%); }
+.kaz-tooltip--bottom::after { bottom: 100%; left: 50%; transform: translateX(-50%); border-bottom-color: var(--kaz-tt-bg); }
+.kaz-tooltip--left { right: calc(100% + var(--kaz-tt-gap)); top: 50%; transform: translateY(-50%); }
+.kaz-tooltip--left::after { left: 100%; top: 50%; transform: translateY(-50%); border-left-color: var(--kaz-tt-bg); }
+.kaz-tooltip--right { left: calc(100% + var(--kaz-tt-gap)); top: 50%; transform: translateY(-50%); }
+.kaz-tooltip--right::after { right: 100%; top: 50%; transform: translateY(-50%); border-right-color: var(--kaz-tt-bg); }

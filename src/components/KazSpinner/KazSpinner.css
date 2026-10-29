@@ -1,0 +1,9 @@
+.kaz-spinner-wrap { display: inline-flex; color: var(--kaz-tone-solid, currentColor); }
+.kaz-spinner--xs { --kaz-spinner-size: 1em; }
+.kaz-spinner--sm { --kaz-spinner-size: 1.25rem; }
+.kaz-spinner--md { --kaz-spinner-size: 2rem; }
+.kaz-spinner--lg { --kaz-spinner-size: 3rem; }
+.kaz-spinner { width: var(--kaz-spinner-size); height: var(--kaz-spinner-size); animation: kaz-spin 0.9s linear infinite; }
+.kaz-spinner circle { fill: none; stroke-width: 2.5; }
+.kaz-spinner__track { stroke: var(--kaz-color-border); }
+.kaz-spinner__arc { stroke: currentColor; stroke-linecap: round; stroke-dasharray: 25 100; }

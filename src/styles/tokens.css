@@ -1,0 +1,277 @@
+/*
+ * Kaz design tokens
+ * Camada 1 (primitivos): escalas de cor, tipografia, espaço, raio, sombra, movimento.
+ * Camada 2 (semânticos): o que os componentes consomem. Troque o tema mudando só esta camada.
+ */
+
+:root {
+  /* Roxo Kaz: dessaturado de propósito, calmo para uso prolongado */
+  --kaz-purple-50: #f6f4fe;
+  --kaz-purple-100: #ede9fc;
+  --kaz-purple-200: #dcd4f9;
+  --kaz-purple-300: #c2b4f3;
+  --kaz-purple-400: #a28bea;
+  --kaz-purple-500: #8466de;
+  --kaz-purple-600: #6e4ccf;
+  --kaz-purple-700: #5c3db5;
+  --kaz-purple-800: #4c3394;
+  --kaz-purple-900: #3f2c77;
+  --kaz-purple-950: #261a4a;
+
+  --kaz-gray-50: #f9fafb;
+  --kaz-gray-100: #f3f4f6;
+  --kaz-gray-200: #e5e7eb;
+  --kaz-gray-300: #d1d5db;
+  --kaz-gray-400: #9ca3af;
+  --kaz-gray-500: #6b7280;
+  --kaz-gray-600: #4b5563;
+  --kaz-gray-700: #374151;
+  --kaz-gray-800: #1f2937;
+  --kaz-gray-900: #111827;
+  --kaz-gray-950: #0b0f19;
+
+  --kaz-green-50: #ecfdf5;
+  --kaz-green-100: #d1fae5;
+  --kaz-green-300: #6ee7b7;
+  --kaz-green-600: #059669;
+  --kaz-green-700: #047857;
+  --kaz-green-800: #065f46;
+  --kaz-green-900: #064e3b;
+
+  --kaz-red-50: #fef2f2;
+  --kaz-red-100: #fee2e2;
+  --kaz-red-300: #fca5a5;
+  --kaz-red-600: #dc2626;
+  --kaz-red-700: #b91c1c;
+  --kaz-red-800: #991b1b;
+  --kaz-red-900: #7f1d1d;
+
+  --kaz-amber-50: #fffbeb;
+  --kaz-amber-100: #fef3c7;
+  --kaz-amber-300: #fcd34d;
+  --kaz-amber-500: #f59e0b;
+  --kaz-amber-600: #d97706;
+  --kaz-amber-700: #b45309;
+  --kaz-amber-800: #92400e;
+  --kaz-amber-900: #78350f;
+
+  --kaz-blue-50: #eff6ff;
+  --kaz-blue-100: #dbeafe;
+  --kaz-blue-300: #93c5fd;
+  --kaz-blue-600: #2563eb;
+  --kaz-blue-700: #1d4ed8;
+  --kaz-blue-800: #1e40af;
+  --kaz-blue-900: #1e3a8a;
+
+  --kaz-white: #ffffff;
+
+  /* Tipografia */
+  --kaz-font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --kaz-font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --kaz-text-xs: 0.75rem;
+  --kaz-text-sm: 0.875rem;
+  --kaz-text-md: 1rem;
+  --kaz-text-lg: 1.125rem;
+  --kaz-text-xl: 1.25rem;
+  --kaz-text-2xl: 1.5rem;
+  --kaz-text-3xl: 1.875rem;
+  --kaz-text-4xl: 2.25rem;
+  --kaz-text-5xl: 3rem;
+  --kaz-leading-tight: 1.25;
+  --kaz-leading-normal: 1.5;
+  --kaz-leading-relaxed: 1.65;
+  --kaz-weight-regular: 400;
+  --kaz-weight-medium: 500;
+  --kaz-weight-semibold: 600;
+  --kaz-weight-bold: 700;
+
+  /* Espaço (base 4px) */
+  --kaz-space-0: 0;
+  --kaz-space-1: 0.25rem;
+  --kaz-space-2: 0.5rem;
+  --kaz-space-3: 0.75rem;
+  --kaz-space-4: 1rem;
+  --kaz-space-5: 1.25rem;
+  --kaz-space-6: 1.5rem;
+  --kaz-space-8: 2rem;
+  --kaz-space-10: 2.5rem;
+  --kaz-space-12: 3rem;
+  --kaz-space-16: 4rem;
+
+  /* Raio */
+  --kaz-radius-sm: 0.25rem;
+  --kaz-radius-md: 0.5rem;
+  --kaz-radius-lg: 0.75rem;
+  --kaz-radius-xl: 1rem;
+  --kaz-radius-full: 9999px;
+
+  /* Sombra: sempre suave */
+  --kaz-shadow-xs: 0 1px 2px rgb(17 24 39 / 0.05);
+  --kaz-shadow-sm: 0 1px 3px rgb(17 24 39 / 0.08), 0 1px 2px rgb(17 24 39 / 0.04);
+  --kaz-shadow-md: 0 4px 12px rgb(17 24 39 / 0.08), 0 2px 4px rgb(17 24 39 / 0.04);
+  --kaz-shadow-lg: 0 12px 32px rgb(17 24 39 / 0.12), 0 4px 8px rgb(17 24 39 / 0.04);
+
+  /* Movimento: curto e sem exagero */
+  --kaz-duration-fast: 120ms;
+  --kaz-duration-normal: 200ms;
+  --kaz-ease: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Camadas */
+  --kaz-z-dropdown: 1000;
+  --kaz-z-tooltip: 1100;
+  --kaz-z-modal: 1200;
+
+  /* ---------- Semânticos: tema claro ---------- */
+  --kaz-color-bg: var(--kaz-white);
+  --kaz-color-bg-subtle: var(--kaz-gray-50);
+  --kaz-color-surface: var(--kaz-white);
+  --kaz-color-surface-muted: var(--kaz-gray-50);
+  --kaz-color-surface-hover: var(--kaz-gray-100);
+  --kaz-color-surface-active: var(--kaz-gray-200);
+  --kaz-color-border: var(--kaz-gray-200);
+  --kaz-color-border-strong: var(--kaz-gray-300);
+  --kaz-color-text: var(--kaz-gray-900);
+  --kaz-color-text-muted: var(--kaz-gray-600);
+  --kaz-color-text-subtle: var(--kaz-gray-500);
+  --kaz-color-text-disabled: var(--kaz-gray-400);
+  --kaz-color-overlay: rgb(17 24 39 / 0.5);
+  --kaz-color-focus: var(--kaz-purple-500);
+  --kaz-focus-ring: 0 0 0 3px rgb(132 102 222 / 0.35);
+
+  --kaz-primary-solid: var(--kaz-purple-600);
+  --kaz-primary-solid-hover: var(--kaz-purple-700);
+  --kaz-primary-solid-active: var(--kaz-purple-800);
+  --kaz-primary-on-solid: var(--kaz-white);
+  --kaz-primary-soft: var(--kaz-purple-100);
+  --kaz-primary-soft-hover: var(--kaz-purple-200);
+  --kaz-primary-soft-text: var(--kaz-purple-800);
+  --kaz-primary-border: var(--kaz-purple-300);
+  --kaz-primary-text: var(--kaz-purple-700);
+
+  --kaz-neutral-solid: var(--kaz-gray-800);
+  --kaz-neutral-solid-hover: var(--kaz-gray-900);
+  --kaz-neutral-solid-active: var(--kaz-gray-950);
+  --kaz-neutral-on-solid: var(--kaz-white);
+  --kaz-neutral-soft: var(--kaz-gray-100);
+  --kaz-neutral-soft-hover: var(--kaz-gray-200);
+  --kaz-neutral-soft-text: var(--kaz-gray-800);
+  --kaz-neutral-border: var(--kaz-gray-300);
+  --kaz-neutral-text: var(--kaz-gray-800);
+
+  --kaz-success-solid: var(--kaz-green-700);
+  --kaz-success-solid-hover: var(--kaz-green-800);
+  --kaz-success-solid-active: var(--kaz-green-900);
+  --kaz-success-on-solid: var(--kaz-white);
+  --kaz-success-soft: var(--kaz-green-50);
+  --kaz-success-soft-hover: var(--kaz-green-100);
+  --kaz-success-soft-text: var(--kaz-green-800);
+  --kaz-success-border: var(--kaz-green-300);
+  --kaz-success-text: var(--kaz-green-700);
+
+  --kaz-danger-solid: var(--kaz-red-700);
+  --kaz-danger-solid-hover: var(--kaz-red-800);
+  --kaz-danger-solid-active: var(--kaz-red-900);
+  --kaz-danger-on-solid: var(--kaz-white);
+  --kaz-danger-soft: var(--kaz-red-50);
+  --kaz-danger-soft-hover: var(--kaz-red-100);
+  --kaz-danger-soft-text: var(--kaz-red-800);
+  --kaz-danger-border: var(--kaz-red-300);
+  --kaz-danger-text: var(--kaz-red-700);
+
+  --kaz-warning-solid: var(--kaz-amber-500);
+  --kaz-warning-solid-hover: var(--kaz-amber-600);
+  --kaz-warning-solid-active: var(--kaz-amber-700);
+  --kaz-warning-on-solid: var(--kaz-gray-900);
+  --kaz-warning-soft: var(--kaz-amber-50);
+  --kaz-warning-soft-hover: var(--kaz-amber-100);
+  --kaz-warning-soft-text: var(--kaz-amber-900);
+  --kaz-warning-border: var(--kaz-amber-300);
+  --kaz-warning-text: var(--kaz-amber-800);
+
+  --kaz-info-solid: var(--kaz-blue-700);
+  --kaz-info-solid-hover: var(--kaz-blue-800);
+  --kaz-info-solid-active: var(--kaz-blue-900);
+  --kaz-info-on-solid: var(--kaz-white);
+  --kaz-info-soft: var(--kaz-blue-50);
+  --kaz-info-soft-hover: var(--kaz-blue-100);
+  --kaz-info-soft-text: var(--kaz-blue-800);
+  --kaz-info-border: var(--kaz-blue-300);
+  --kaz-info-text: var(--kaz-blue-700);
+
+  --kaz-tooltip-bg: var(--kaz-gray-900);
+  --kaz-tooltip-text: var(--kaz-white);
+}
+
+/* ---------- Semânticos: tema escuro ---------- */
+[data-kaz-theme='dark'] {
+  color-scheme: dark;
+  --kaz-color-bg: var(--kaz-gray-900);
+  --kaz-color-bg-subtle: var(--kaz-gray-950);
+  --kaz-color-surface: var(--kaz-gray-800);
+  --kaz-color-surface-muted: #18212f;
+  --kaz-color-surface-hover: var(--kaz-gray-700);
+  --kaz-color-surface-active: var(--kaz-gray-600);
+  --kaz-color-border: var(--kaz-gray-700);
+  --kaz-color-border-strong: var(--kaz-gray-600);
+  --kaz-color-text: var(--kaz-gray-50);
+  --kaz-color-text-muted: var(--kaz-gray-300);
+  --kaz-color-text-subtle: var(--kaz-gray-400);
+  --kaz-color-text-disabled: var(--kaz-gray-500);
+  --kaz-color-overlay: rgb(0 0 0 / 0.65);
+  --kaz-color-focus: var(--kaz-purple-400);
+  --kaz-focus-ring: 0 0 0 3px rgb(162 139 234 / 0.45);
+
+  --kaz-primary-soft: rgb(132 102 222 / 0.18);
+  --kaz-primary-soft-hover: rgb(132 102 222 / 0.28);
+  --kaz-primary-soft-text: var(--kaz-purple-200);
+  --kaz-primary-border: var(--kaz-purple-500);
+  --kaz-primary-text: var(--kaz-purple-300);
+
+  --kaz-neutral-solid: var(--kaz-gray-100);
+  --kaz-neutral-solid-hover: var(--kaz-gray-200);
+  --kaz-neutral-solid-active: var(--kaz-gray-300);
+  --kaz-neutral-on-solid: var(--kaz-gray-900);
+  --kaz-neutral-soft: var(--kaz-gray-700);
+  --kaz-neutral-soft-hover: var(--kaz-gray-600);
+  --kaz-neutral-soft-text: var(--kaz-gray-100);
+  --kaz-neutral-border: var(--kaz-gray-600);
+  --kaz-neutral-text: var(--kaz-gray-100);
+
+  --kaz-success-soft: rgb(5 150 105 / 0.18);
+  --kaz-success-soft-hover: rgb(5 150 105 / 0.28);
+  --kaz-success-soft-text: var(--kaz-green-300);
+  --kaz-success-border: var(--kaz-green-600);
+  --kaz-success-text: var(--kaz-green-300);
+
+  --kaz-danger-soft: rgb(220 38 38 / 0.18);
+  --kaz-danger-soft-hover: rgb(220 38 38 / 0.28);
+  --kaz-danger-soft-text: var(--kaz-red-300);
+  --kaz-danger-border: var(--kaz-red-600);
+  --kaz-danger-text: var(--kaz-red-300);
+
+  --kaz-warning-soft: rgb(245 158 11 / 0.16);
+  --kaz-warning-soft-hover: rgb(245 158 11 / 0.26);
+  --kaz-warning-soft-text: var(--kaz-amber-300);
+  --kaz-warning-border: var(--kaz-amber-600);
+  --kaz-warning-text: var(--kaz-amber-300);
+
+  --kaz-info-soft: rgb(37 99 235 / 0.18);
+  --kaz-info-soft-hover: rgb(37 99 235 / 0.28);
+  --kaz-info-soft-text: var(--kaz-blue-300);
+  --kaz-info-border: var(--kaz-blue-600);
+  --kaz-info-text: var(--kaz-blue-300);
+
+  --kaz-tooltip-bg: var(--kaz-white);
+  --kaz-tooltip-text: var(--kaz-gray-900);
+
+  --kaz-shadow-sm: 0 1px 3px rgb(0 0 0 / 0.4);
+  --kaz-shadow-md: 0 4px 12px rgb(0 0 0 / 0.4);
+  --kaz-shadow-lg: 0 12px 32px rgb(0 0 0 / 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --kaz-duration-fast: 0ms;
+    --kaz-duration-normal: 0ms;
+  }
+}

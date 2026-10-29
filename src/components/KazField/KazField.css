@@ -1,0 +1,68 @@
+.kaz-field { display: flex; flex-direction: column; gap: var(--kaz-space-2); min-width: 0; }
+.kaz-field__label { font-size: var(--kaz-text-sm); font-weight: var(--kaz-weight-medium); color: var(--kaz-color-text); }
+.kaz-field__required { color: var(--kaz-danger-text); }
+.kaz-field__msg { margin: 0; font-size: var(--kaz-text-sm); color: var(--kaz-color-text-subtle); }
+.kaz-field__msg--error { color: var(--kaz-danger-text); }
+.kaz-field__msg--success { color: var(--kaz-success-text); }
+
+/* Caixa de controle compartilhada (input, select, textarea) */
+.kaz-control {
+  --kaz-control-h: 2.5rem;
+  --kaz-control-fs: var(--kaz-text-sm);
+  --kaz-control-px: 0.875rem;
+  position: relative; display: flex; align-items: center;
+  min-height: var(--kaz-control-h);
+  border: 1px solid var(--kaz-color-border-strong); border-radius: var(--kaz-radius-md);
+  background: var(--kaz-color-surface-muted); color: var(--kaz-color-text);
+  transition: border-color var(--kaz-duration-fast) var(--kaz-ease), box-shadow var(--kaz-duration-fast) var(--kaz-ease);
+}
+[data-kaz-theme='dark'] .kaz-control { background: var(--kaz-color-surface-hover); border-color: var(--kaz-color-border-strong); }
+.kaz-control--sm { --kaz-control-h: 2.125rem; --kaz-control-fs: var(--kaz-text-sm); --kaz-control-px: 0.75rem; }
+.kaz-control--lg { --kaz-control-h: 3rem; --kaz-control-fs: var(--kaz-text-md); --kaz-control-px: 1rem; }
+.kaz-control:hover { border-color: var(--kaz-gray-400); }
+.kaz-control:focus-within { border-color: var(--kaz-color-focus); box-shadow: var(--kaz-focus-ring); }
+.kaz-control--error { border-color: var(--kaz-danger-border); background: var(--kaz-danger-soft); }
+.kaz-control--error:focus-within { border-color: var(--kaz-danger-solid); box-shadow: 0 0 0 3px rgb(220 38 38 / 0.2); }
+.kaz-control--success { border-color: var(--kaz-success-border); background: var(--kaz-success-soft); }
+.kaz-control--success:focus-within { border-color: var(--kaz-success-solid); box-shadow: 0 0 0 3px rgb(5 150 105 / 0.2); }
+.kaz-control--disabled { opacity: 0.6; cursor: not-allowed; }
+.kaz-control--disabled:hover { border-color: var(--kaz-color-border-strong); }
+
+.kaz-control__input {
+  flex: 1; min-width: 0; height: calc(var(--kaz-control-h) - 2px);
+  padding: 0 var(--kaz-control-px); border: 0; outline: 0;
+  background: transparent; color: inherit; font: inherit; font-size: var(--kaz-control-fs);
+}
+.kaz-control__input::placeholder { color: var(--kaz-color-text-subtle); }
+.kaz-control__input:disabled { cursor: not-allowed; }
+.kaz-control__adorn {
+  display: inline-flex; align-items: center; color: var(--kaz-color-text-subtle);
+  font-size: calc(var(--kaz-control-fs) * 1.15);
+}
+.kaz-control__adorn--start { padding-left: var(--kaz-control-px); margin-right: calc(var(--kaz-control-px) * -0.5); }
+.kaz-control__adorn--end { padding-right: var(--kaz-control-px); margin-left: calc(var(--kaz-control-px) * -0.5); gap: var(--kaz-space-2); }
+.kaz-control--error .kaz-control__status { color: var(--kaz-danger-text); }
+.kaz-control--success .kaz-control__status { color: var(--kaz-success-text); }
+.kaz-control__clear {
+  display: inline-flex; padding: 0.15rem; border: 0; border-radius: var(--kaz-radius-full);
+  background: transparent; color: var(--kaz-color-text-subtle); cursor: pointer; font-size: inherit;
+}
+.kaz-control__clear:hover { color: var(--kaz-color-text); background: var(--kaz-color-surface-active); }
+.kaz-control__clear:focus-visible { outline: none; box-shadow: var(--kaz-focus-ring); }
+
+.kaz-control--textarea { align-items: stretch; }
+.kaz-control__textarea {
+  flex: 1; min-height: 7rem; padding: 0.625rem var(--kaz-control-px);
+  border: 0; outline: 0; resize: vertical; background: transparent; color: inherit;
+  font: inherit; font-size: var(--kaz-control-fs); line-height: var(--kaz-leading-normal);
+}
+.kaz-control__textarea::placeholder { color: var(--kaz-color-text-subtle); }
+
+.kaz-control__select {
+  flex: 1; min-width: 0; height: calc(var(--kaz-control-h) - 2px);
+  padding: 0 calc(var(--kaz-control-px) + 1.5rem) 0 var(--kaz-control-px);
+  border: 0; outline: 0; appearance: none; background: transparent; color: inherit;
+  font: inherit; font-size: var(--kaz-control-fs); cursor: pointer;
+}
+.kaz-control__select option { color: var(--kaz-color-text); background: var(--kaz-color-surface); }
+.kaz-control__chevron { position: absolute; right: var(--kaz-control-px); pointer-events: none; color: var(--kaz-color-text-subtle); }

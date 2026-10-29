@@ -1,0 +1,12 @@
+.kaz-datepicker { position: relative; }
+.kaz-datepicker__trigger { width: 100%; padding: 0; font: inherit; text-align: left; cursor: pointer; }
+.kaz-datepicker__trigger:focus-visible { outline: none; border-color: var(--kaz-color-focus); box-shadow: var(--kaz-focus-ring); }
+.kaz-datepicker__value { flex: 1; padding: 0 var(--kaz-control-px); font-size: var(--kaz-control-fs); }
+.kaz-datepicker__value--placeholder { color: var(--kaz-color-text-subtle); }
+.kaz-datepicker__popover {
+  position: absolute; top: calc(100% + 0.5rem); left: 0; z-index: var(--kaz-z-dropdown);
+  padding: var(--kaz-space-4); border: 1px solid var(--kaz-color-border); border-radius: var(--kaz-radius-lg);
+  background: var(--kaz-color-surface); box-shadow: var(--kaz-shadow-lg);
+  animation: kaz-pop-in var(--kaz-duration-normal) var(--kaz-ease);
+}
+.kaz-datepicker__actions { display: flex; gap: var(--kaz-space-3); margin-top: var(--kaz-space-4); }

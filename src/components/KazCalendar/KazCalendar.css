@@ -1,0 +1,40 @@
+.kaz-calendar { display: inline-flex; gap: var(--kaz-space-6); color: var(--kaz-color-text); font-size: var(--kaz-text-sm); }
+.kaz-calendar__month { width: 17.5rem; }
+.kaz-calendar__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--kaz-space-3); }
+.kaz-calendar__nav, .kaz-calendar__title {
+  display: inline-flex; align-items: center; justify-content: center; height: 2.25rem;
+  border: 0; border-radius: var(--kaz-radius-md); background: transparent; color: var(--kaz-color-text);
+  font: inherit; font-weight: var(--kaz-weight-semibold); cursor: pointer;
+}
+.kaz-calendar__nav { width: 2.25rem; font-size: 1.1rem; }
+.kaz-calendar__nav-spacer { width: 2.25rem; }
+.kaz-calendar__title { padding: 0 var(--kaz-space-3); }
+.kaz-calendar__title--static { cursor: default; }
+.kaz-calendar__nav:hover, button.kaz-calendar__title:hover { background: var(--kaz-color-surface-hover); }
+.kaz-calendar__nav:focus-visible, .kaz-calendar__title:focus-visible { outline: none; box-shadow: var(--kaz-focus-ring); }
+.kaz-calendar__row { display: grid; grid-template-columns: repeat(7, 1fr); }
+.kaz-calendar__weekday { padding-bottom: var(--kaz-space-2); text-align: center; font-size: var(--kaz-text-xs); font-weight: var(--kaz-weight-medium); color: var(--kaz-color-text-subtle); }
+.kaz-calendar__cell { display: flex; justify-content: center; padding: 1px 0; }
+.kaz-calendar__day {
+  width: 100%; height: 2.25rem; border: 0; border-radius: var(--kaz-radius-md); background: transparent;
+  color: var(--kaz-color-text); font: inherit; font-weight: var(--kaz-weight-medium); font-variant-numeric: tabular-nums; cursor: pointer;
+}
+.kaz-calendar__day:hover:not(:disabled) { background: var(--kaz-color-surface-hover); }
+.kaz-calendar__day:focus-visible { outline: none; box-shadow: var(--kaz-focus-ring); position: relative; z-index: 1; }
+.kaz-calendar__day:disabled { color: var(--kaz-color-text-disabled); cursor: not-allowed; text-decoration: line-through; }
+.kaz-calendar__day--outside { color: var(--kaz-color-text-disabled); }
+.kaz-calendar__day--today { box-shadow: inset 0 0 0 1px var(--kaz-primary-border); }
+.kaz-calendar__day--in-range { border-radius: 0; background: var(--kaz-primary-soft); color: var(--kaz-primary-soft-text); }
+.kaz-calendar__day--in-range:hover:not(:disabled) { background: var(--kaz-primary-soft-hover); }
+.kaz-calendar__day--selected, .kaz-calendar__day--selected:hover:not(:disabled) { background: var(--kaz-primary-solid); color: var(--kaz-primary-on-solid); }
+.kaz-calendar__day--range-start { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+.kaz-calendar__day--range-end { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+.kaz-calendar__picker { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--kaz-space-2); }
+.kaz-calendar__pick {
+  height: 2.75rem; border: 0; border-radius: var(--kaz-radius-md); background: transparent;
+  color: var(--kaz-color-text); font: inherit; font-weight: var(--kaz-weight-medium); cursor: pointer;
+}
+.kaz-calendar__pick:hover { background: var(--kaz-color-surface-hover); }
+.kaz-calendar__pick:focus-visible { outline: none; box-shadow: var(--kaz-focus-ring); }
+.kaz-calendar__pick--selected, .kaz-calendar__pick--selected:hover { background: var(--kaz-primary-solid); color: var(--kaz-primary-on-solid); }
+@media (max-width: 640px) { .kaz-calendar--double { flex-direction: column; } }

@@ -1,0 +1,83 @@
+{
+  "name": "@bloo/kaz",
+  "version": "0.1.0",
+  "description": "Kaz: o design system da Bloo. Componentes React acessíveis, calmos e previsíveis.",
+  "license": "MIT",
+  "author": "Bloo",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./styles.css": "./dist/index.css",
+    "./tokens.css": "./dist/tokens.css"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "react",
+    "design-system",
+    "components",
+    "kaz",
+    "bloo",
+    "acessibilidade"
+  ],
+  "scripts": {
+    "build": "tsup && cp src/styles/tokens.css dist/tokens.css",
+    "dev": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build -o storybook-static",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^8.6.19",
+    "@storybook/addon-essentials": "^8.6.19",
+    "@storybook/blocks": "^8.6.19",
+    "@storybook/react": "^8.6.19",
+    "@storybook/react-vite": "^8.6.19",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/react": "^16.3.3",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "jsdom": "^25.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "storybook": "^8.6.19",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21",
+    "vitest": "^2.1.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvestrev/kaz-design-system.git"
+  },
+  "homepage": "https://silvestrev.github.io/kaz-design-system/",
+  "bugs": {
+    "url": "https://github.com/silvestrev/kaz-design-system/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

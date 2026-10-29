@@ -1,0 +1,15 @@
+.kaz-badge {
+  display: inline-flex; align-items: center; gap: 0.35em;
+  border: 1px solid transparent; border-radius: var(--kaz-radius-md);
+  font-weight: var(--kaz-weight-medium); line-height: 1; white-space: nowrap;
+}
+.kaz-badge--sm { height: 1.375rem; padding: 0 0.5rem; font-size: var(--kaz-text-xs); }
+.kaz-badge--md { height: 1.75rem; padding: 0 0.625rem; font-size: var(--kaz-text-sm); }
+.kaz-badge--soft { background: var(--kaz-tone-soft); color: var(--kaz-tone-soft-text); }
+.kaz-badge--solid { background: var(--kaz-tone-solid); color: var(--kaz-tone-on-solid); }
+.kaz-badge--outline { border-color: var(--kaz-tone-border); color: var(--kaz-tone-text); }
+.kaz-badge--circle { justify-content: center; padding: 0; border-radius: var(--kaz-radius-full); }
+.kaz-badge--circle.kaz-badge--sm { min-width: 1.375rem; }
+.kaz-badge--circle.kaz-badge--md { min-width: 1.75rem; }
+.kaz-badge__icon { display: inline-flex; font-size: 1.1em; }
+.kaz-badge__dot { width: 0.4rem; height: 0.4rem; border-radius: 50%; background: currentColor; }

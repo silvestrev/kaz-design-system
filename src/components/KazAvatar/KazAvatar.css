@@ -1,0 +1,12 @@
+.kaz-avatar {
+  display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden;
+  width: var(--kaz-avatar-size); height: var(--kaz-avatar-size); border-radius: 50%;
+  background: var(--kaz-primary-soft); color: var(--kaz-primary-soft-text);
+  font-weight: var(--kaz-weight-semibold); font-size: calc(var(--kaz-avatar-size) * 0.4); line-height: 1;
+}
+.kaz-avatar--xs { --kaz-avatar-size: 1.5rem; }
+.kaz-avatar--sm { --kaz-avatar-size: 2rem; }
+.kaz-avatar--md { --kaz-avatar-size: 2.5rem; }
+.kaz-avatar--lg { --kaz-avatar-size: 3rem; }
+.kaz-avatar--xl { --kaz-avatar-size: 4rem; }
+.kaz-avatar__img { width: 100%; height: 100%; object-fit: cover; }

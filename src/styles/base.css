@@ -1,0 +1,142 @@
+/* Base compartilhada pelos componentes Kaz */
+
+.kaz-root {
+  font-family: var(--kaz-font-sans);
+  font-size: var(--kaz-text-md);
+  line-height: var(--kaz-leading-normal);
+  color: var(--kaz-color-text);
+  background-color: var(--kaz-color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+[class^='kaz-'],
+[class*=' kaz-'],
+[class^='kaz-'] *,
+[class*=' kaz-'] * {
+  box-sizing: border-box;
+}
+
+.kaz-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.kaz-icon {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+}
+
+/* Tons: cada componente lê --kaz-tone-* e o tom escolhido preenche */
+.kaz-tone-primary {
+  --kaz-tone-solid: var(--kaz-primary-solid);
+  --kaz-tone-solid-hover: var(--kaz-primary-solid-hover);
+  --kaz-tone-solid-active: var(--kaz-primary-solid-active);
+  --kaz-tone-on-solid: var(--kaz-primary-on-solid);
+  --kaz-tone-soft: var(--kaz-primary-soft);
+  --kaz-tone-soft-hover: var(--kaz-primary-soft-hover);
+  --kaz-tone-soft-text: var(--kaz-primary-soft-text);
+  --kaz-tone-border: var(--kaz-primary-border);
+  --kaz-tone-text: var(--kaz-primary-text);
+}
+.kaz-tone-neutral {
+  --kaz-tone-solid: var(--kaz-neutral-solid);
+  --kaz-tone-solid-hover: var(--kaz-neutral-solid-hover);
+  --kaz-tone-solid-active: var(--kaz-neutral-solid-active);
+  --kaz-tone-on-solid: var(--kaz-neutral-on-solid);
+  --kaz-tone-soft: var(--kaz-neutral-soft);
+  --kaz-tone-soft-hover: var(--kaz-neutral-soft-hover);
+  --kaz-tone-soft-text: var(--kaz-neutral-soft-text);
+  --kaz-tone-border: var(--kaz-neutral-border);
+  --kaz-tone-text: var(--kaz-neutral-text);
+}
+.kaz-tone-success {
+  --kaz-tone-solid: var(--kaz-success-solid);
+  --kaz-tone-solid-hover: var(--kaz-success-solid-hover);
+  --kaz-tone-solid-active: var(--kaz-success-solid-active);
+  --kaz-tone-on-solid: var(--kaz-success-on-solid);
+  --kaz-tone-soft: var(--kaz-success-soft);
+  --kaz-tone-soft-hover: var(--kaz-success-soft-hover);
+  --kaz-tone-soft-text: var(--kaz-success-soft-text);
+  --kaz-tone-border: var(--kaz-success-border);
+  --kaz-tone-text: var(--kaz-success-text);
+}
+.kaz-tone-danger {
+  --kaz-tone-solid: var(--kaz-danger-solid);
+  --kaz-tone-solid-hover: var(--kaz-danger-solid-hover);
+  --kaz-tone-solid-active: var(--kaz-danger-solid-active);
+  --kaz-tone-on-solid: var(--kaz-danger-on-solid);
+  --kaz-tone-soft: var(--kaz-danger-soft);
+  --kaz-tone-soft-hover: var(--kaz-danger-soft-hover);
+  --kaz-tone-soft-text: var(--kaz-danger-soft-text);
+  --kaz-tone-border: var(--kaz-danger-border);
+  --kaz-tone-text: var(--kaz-danger-text);
+}
+.kaz-tone-warning {
+  --kaz-tone-solid: var(--kaz-warning-solid);
+  --kaz-tone-solid-hover: var(--kaz-warning-solid-hover);
+  --kaz-tone-solid-active: var(--kaz-warning-solid-active);
+  --kaz-tone-on-solid: var(--kaz-warning-on-solid);
+  --kaz-tone-soft: var(--kaz-warning-soft);
+  --kaz-tone-soft-hover: var(--kaz-warning-soft-hover);
+  --kaz-tone-soft-text: var(--kaz-warning-soft-text);
+  --kaz-tone-border: var(--kaz-warning-border);
+  --kaz-tone-text: var(--kaz-warning-text);
+}
+.kaz-tone-info {
+  --kaz-tone-solid: var(--kaz-info-solid);
+  --kaz-tone-solid-hover: var(--kaz-info-solid-hover);
+  --kaz-tone-solid-active: var(--kaz-info-solid-active);
+  --kaz-tone-on-solid: var(--kaz-info-on-solid);
+  --kaz-tone-soft: var(--kaz-info-soft);
+  --kaz-tone-soft-hover: var(--kaz-info-soft-hover);
+  --kaz-tone-soft-text: var(--kaz-info-soft-text);
+  --kaz-tone-border: var(--kaz-info-border);
+  --kaz-tone-text: var(--kaz-info-text);
+}
+
+@keyframes kaz-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes kaz-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes kaz-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class^='kaz-'],
+  [class*=' kaz-'] {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .kaz-spinner {
+    animation-duration: 1.6s !important;
+  }
+}

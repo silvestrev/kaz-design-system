@@ -1,0 +1,41 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introdução/Bem-vindo ao Kaz" />
+
+# Kaz
+
+O **Kaz** é o design system da **Bloo**: componentes React acessíveis, calmos e previsíveis, pensados primeiro para produtos de clínicas de TEA e reaproveitados em todo o ecossistema Bloo.
+
+## Princípios
+
+1. **Calma antes de chamar atenção.** Roxo dessaturado, sombras suaves, animações curtas e nada que se mova sozinho por padrão.
+2. **Previsível.** O mesmo padrão faz sempre a mesma coisa. Poucas variantes, bem nomeadas.
+3. **Acessível de verdade.** Contraste WCAG AA, navegação completa por teclado, ARIA correto e respeito ao "reduzir movimento".
+4. **Claro e direto.** Textos padrão em português simples. Um botão principal por área.
+
+## Instalação
+
+```bash
+npm install @bloo/kaz
+```
+
+```tsx
+import '@bloo/kaz/styles.css';
+import { KazProvider, KazButton } from '@bloo/kaz';
+
+export function App() {
+  return (
+    <KazProvider theme="light">
+      <KazButton>Agendar sessão</KazButton>
+    </KazProvider>
+  );
+}
+```
+
+Use a barra de ferramentas acima (ícone de tema) para ver todos os componentes no **modo escuro**.
+
+## Convenções
+
+- Todos os componentes começam com `Kaz` (`<KazButton>`, `<KazTooltip>`...).
+- Classes CSS seguem `kaz-bloco__elemento--modificador` e todas as cores vêm de variáveis `--kaz-*`.
+- Textos padrão estão em pt-BR e podem ser trocados por props (`labels`, `closeLabel`, `placeholder`...).

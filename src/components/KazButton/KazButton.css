@@ -1,0 +1,106 @@
+.kaz-btn {
+  --kaz-btn-h: 2.5rem;
+  --kaz-btn-px: 1rem;
+  --kaz-btn-fs: var(--kaz-text-sm);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  height: var(--kaz-btn-h);
+  padding: 0 var(--kaz-btn-px);
+  border: 1px solid transparent;
+  border-radius: var(--kaz-radius-md);
+  font-family: inherit;
+  font-size: var(--kaz-btn-fs);
+  font-weight: var(--kaz-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color var(--kaz-duration-fast) var(--kaz-ease),
+    border-color var(--kaz-duration-fast) var(--kaz-ease),
+    color var(--kaz-duration-fast) var(--kaz-ease),
+    box-shadow var(--kaz-duration-fast) var(--kaz-ease);
+}
+
+.kaz-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--kaz-focus-ring);
+}
+
+.kaz-btn:disabled,
+.kaz-btn[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.kaz-btn--xs { --kaz-btn-h: 1.75rem; --kaz-btn-px: 0.625rem; --kaz-btn-fs: var(--kaz-text-xs); }
+.kaz-btn--sm { --kaz-btn-h: 2.125rem; --kaz-btn-px: 0.75rem; --kaz-btn-fs: var(--kaz-text-sm); }
+.kaz-btn--md { --kaz-btn-h: 2.5rem; --kaz-btn-px: 1rem; --kaz-btn-fs: var(--kaz-text-sm); }
+.kaz-btn--lg { --kaz-btn-h: 3rem; --kaz-btn-px: 1.25rem; --kaz-btn-fs: var(--kaz-text-md); }
+.kaz-btn--xl { --kaz-btn-h: 3.5rem; --kaz-btn-px: 1.5rem; --kaz-btn-fs: var(--kaz-text-lg); }
+
+.kaz-btn--icon { width: var(--kaz-btn-h); padding: 0; }
+.kaz-btn--full { display: flex; width: 100%; }
+
+.kaz-btn__icon { display: inline-flex; font-size: 1.15em; }
+
+/* solid */
+.kaz-btn--solid { background: var(--kaz-tone-solid); color: var(--kaz-tone-on-solid); }
+.kaz-btn--solid:hover:not(:disabled) { background: var(--kaz-tone-solid-hover); }
+.kaz-btn--solid:active:not(:disabled),
+.kaz-btn--solid.kaz-btn--pressed { background: var(--kaz-tone-solid-active); }
+
+/* soft */
+.kaz-btn--soft { background: var(--kaz-tone-soft); color: var(--kaz-tone-soft-text); }
+.kaz-btn--soft:hover:not(:disabled),
+.kaz-btn--soft.kaz-btn--pressed { background: var(--kaz-tone-soft-hover); }
+
+/* outline */
+.kaz-btn--outline {
+  background: var(--kaz-color-surface);
+  border-color: var(--kaz-color-border-strong);
+  color: var(--kaz-color-text);
+}
+.kaz-btn--outline.kaz-tone-primary,
+.kaz-btn--outline.kaz-tone-danger,
+.kaz-btn--outline.kaz-tone-success,
+.kaz-btn--outline.kaz-tone-warning { border-color: var(--kaz-tone-border); color: var(--kaz-tone-text); }
+.kaz-btn--outline:hover:not(:disabled) { background: var(--kaz-color-surface-hover); }
+.kaz-btn--outline.kaz-btn--pressed { background: var(--kaz-color-surface-active); }
+
+/* ghost */
+.kaz-btn--ghost { background: transparent; color: var(--kaz-tone-text); }
+.kaz-btn--ghost.kaz-tone-neutral { color: var(--kaz-color-text-muted); }
+.kaz-btn--ghost:hover:not(:disabled),
+.kaz-btn--ghost.kaz-btn--pressed { background: var(--kaz-tone-soft); color: var(--kaz-tone-soft-text); }
+
+/* link */
+.kaz-btn--link {
+  height: auto;
+  padding: 0;
+  background: none;
+  color: var(--kaz-tone-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: transparent;
+}
+.kaz-btn--link:hover:not(:disabled) { text-decoration-color: currentColor; }
+
+/* loading: mantém a largura, troca o conteúdo pelo spinner */
+.kaz-btn--loading { cursor: progress; }
+.kaz-btn--loading .kaz-btn__label,
+.kaz-btn--loading .kaz-btn__icon { visibility: hidden; }
+.kaz-btn__spinner { position: absolute; inset: 0; display: inline-flex; align-items: center; justify-content: center; font-size: 1.1em; }
+
+/* grupo */
+.kaz-btn-group { display: inline-flex; isolation: isolate; border-radius: var(--kaz-radius-md); box-shadow: var(--kaz-shadow-xs); }
+.kaz-btn-group > .kaz-btn { border-radius: 0; }
+.kaz-btn-group > .kaz-btn:first-child { border-top-left-radius: var(--kaz-radius-md); border-bottom-left-radius: var(--kaz-radius-md); }
+.kaz-btn-group > .kaz-btn:last-child { border-top-right-radius: var(--kaz-radius-md); border-bottom-right-radius: var(--kaz-radius-md); }
+.kaz-btn-group > .kaz-btn + .kaz-btn { margin-left: -1px; }
+.kaz-btn-group > .kaz-btn:focus-visible { z-index: 1; }
+.kaz-btn-group > .kaz-btn--solid + .kaz-btn--solid { border-left-color: rgb(255 255 255 / 0.2); }
