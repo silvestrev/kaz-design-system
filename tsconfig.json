@@ -13,7 +13,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "types": ["vitest/globals"],
-    "paths": { "@bloo/kaz": ["./src/index.ts"] }
+    "paths": { "@silvestrev/kaz": ["./src/index.ts"] }
   },
-  "include": ["src", ".storybook", "site/src"]
+  "include": ["src", ".storybook"]
 }

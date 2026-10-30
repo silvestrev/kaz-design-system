@@ -6,8 +6,14 @@ Todas as mudanças relevantes do Kaz ficam registradas aqui. O projeto segue [Ve
 
 ### Adicionado
 
-- Site de apresentação da Bloo em `site/`, feito com o Kaz (`npm run site:dev`).
 - Ícones `sun`, `moon`, `compass`, `code`, `layers`, `users`, `shield`, `sparkles`, `refresh` e `github` no `KazIcon`.
+
+### Alterado
+
+- O Kaz passa a ser privado: pacote renomeado para `@silvestrev/kaz`, publicado no GitHub Packages, com licença proprietária.
+- Publicação do Storybook no GitHub Pages passa a ser manual.
+- A landing page da Bloo saiu deste repositório e foi para `silvestrev/bloo-web`.
+- Regras de proteção da `main` (`.github/rulesets/`), CODEOWNERS, Dependabot e permissões mínimas no CI.
 
 ### Corrigido
 

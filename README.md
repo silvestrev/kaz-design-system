@@ -1,11 +1,13 @@
 # Kaz
 
+> **Repositório privado.** O Kaz é de uso interno da Bloo e de quem ela autorizar.
+
 **O design system da Bloo.** Componentes React acessíveis, calmos e previsíveis, criados primeiro para produtos de clínicas de TEA e reaproveitados em todo o ecossistema Bloo.
 
 [![CI](https://github.com/silvestrev/kaz-design-system/actions/workflows/ci.yml/badge.svg)](https://github.com/silvestrev/kaz-design-system/actions/workflows/ci.yml)
 ![Versão](https://img.shields.io/badge/vers%C3%A3o-0.1.0-6e4ccf)
 ![React](https://img.shields.io/badge/React-18%20%7C%2019-61dafb)
-![Licença](https://img.shields.io/badge/licen%C3%A7a-MIT-green)
+![Uso interno](https://img.shields.io/badge/uso-interno%20Bloo-6e4ccf)
 
 ![Página inicial de exemplo montada com o Kaz](docs/assets/pagina-inicial.png)
 
@@ -27,7 +29,7 @@
 - [Desenvolvimento local](#desenvolvimento-local)
 - [Estrutura do projeto](#estrutura-do-projeto)
 - [Como criar um novo componente](#como-criar-um-novo-componente)
-- [Publicação no npm](#publicação-no-npm)
+- [Publicação no GitHub Packages](#publicação-no-github-packages)
 - [Roadmap](#roadmap)
 - [Licença](#licença)
 
@@ -52,13 +54,26 @@ A Bloo é uma software house que nasce focada em produtos B2B para clínicas que
 
 ## Instalação
 
-```bash
-npm install @bloo/kaz
-# ou
-yarn add @bloo/kaz
-# ou
-pnpm add @bloo/kaz
+O pacote `@silvestrev/kaz` fica no **GitHub Packages** (privado). Para instalar, o projeto precisa saber onde buscar o escopo `@silvestrev` e ter um token com acesso.
+
+1. Crie um token em **GitHub → Settings → Developer settings → Personal access tokens (classic)** com o escopo `read:packages`.
+2. Na raiz do projeto que vai usar o Kaz, crie um `.npmrc`:
+
+```ini
+@silvestrev:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
 ```
+
+3. Exporte o token (ou configure como segredo no CI) e instale:
+
+```bash
+export GITHUB_TOKEN=seu_token
+npm install @silvestrev/kaz
+```
+
+> Nunca faça commit do token. O `.npmrc` acima lê a variável de ambiente.
+>
+> No GitHub Actions de outro repositório da Bloo, use `NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}` e dê ao repositório acesso ao pacote em **Package settings → Manage Actions access**.
 
 **Requisitos:** React 18 ou superior e `react-dom`. O Kaz não tem outras dependências em tempo de execução.
 
@@ -78,8 +93,8 @@ pnpm add @bloo/kaz
 
 ```tsx
 // main.tsx
-import '@bloo/kaz/styles.css';
-import { KazProvider, KazButton, KazIcon } from '@bloo/kaz';
+import '@silvestrev/kaz/styles.css';
+import { KazProvider, KazButton, KazIcon } from '@silvestrev/kaz';
 
 export function App() {
   return (
@@ -96,8 +111,8 @@ Os componentes já saem marcados com `"use client"`, então podem ser usados den
 
 ```tsx
 // app/layout.tsx
-import '@bloo/kaz/styles.css';
-import { KazProvider } from '@bloo/kaz';
+import '@silvestrev/kaz/styles.css';
+import { KazProvider } from '@silvestrev/kaz';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -199,7 +214,7 @@ Todos os componentes começam com o prefixo **`Kaz`**. As props seguem os mesmos
 ### Formulário com validação
 
 ```tsx
-import { KazButton, KazInput, KazSelect, KazCheckbox } from '@bloo/kaz';
+import { KazButton, KazInput, KazSelect, KazCheckbox } from '@silvestrev/kaz';
 
 function CadastroPaciente() {
   const [email, setEmail] = useState('');
@@ -227,7 +242,7 @@ function CadastroPaciente() {
 ### Tabela com status
 
 ```tsx
-import { KazTable, KazBadge, type KazTableColumn } from '@bloo/kaz';
+import { KazTable, KazBadge, type KazTableColumn } from '@silvestrev/kaz';
 
 type Sessao = { id: string; paciente: string; data: string; status: 'confirmada' | 'cancelada' };
 
@@ -249,7 +264,7 @@ const colunas: KazTableColumn<Sessao>[] = [
 ### Escolher um período
 
 ```tsx
-import { KazDatepicker, type KazDateRange } from '@bloo/kaz';
+import { KazDatepicker, type KazDateRange } from '@silvestrev/kaz';
 
 const [periodo, setPeriodo] = useState<KazDateRange>({ start: null, end: null });
 
@@ -356,7 +371,7 @@ Pesos: `--kaz-weight-regular` (400), `-medium` (500), `-semibold` (600), `-bold`
 - **Sombra:** `--kaz-shadow-xs`, `-sm`, `-md`, `-lg`, sempre suaves.
 - **Movimento:** `--kaz-duration-fast` (120ms), `--kaz-duration-normal` (200ms). Ambos viram 0 com "reduzir movimento".
 
-Precisa só das variáveis, sem os componentes? Importe `@bloo/kaz/tokens.css`.
+Precisa só das variáveis, sem os componentes? Importe `@silvestrev/kaz/tokens.css`.
 
 ## Personalização
 
@@ -400,20 +415,17 @@ O Storybook tem o addon **a11y** ligado: cada história mostra as verificações
 
 Toda a documentação viva dos componentes está no Storybook, em português, com controles interativos e alternância de tema na barra de ferramentas.
 
-- **Online:** https://silvestrev.github.io/kaz-design-system/ (publicado automaticamente a cada push na `main`, depois de ativar o GitHub Pages; veja abaixo).
-- **Local:** `npm run storybook` e abra http://localhost:6006.
+```bash
+npm run storybook   # http://localhost:6006
+```
 
 Inclui uma página inicial de exemplo completa em **Exemplos → Página inicial da Bloo**.
 
-Para ativar a publicação: no GitHub, vá em **Settings → Pages → Build and deployment → Source** e escolha **GitHub Actions**.
+O workflow `storybook.yml` publica no GitHub Pages, mas roda só manualmente: Pages em repositório privado exige um plano pago do GitHub. Para usar, ative **Settings → Pages → Source: GitHub Actions** e rode o workflow em **Actions**.
 
 ## Site da Bloo
 
-A pasta [`site/`](site/) tem a landing page de apresentação da Bloo, montada só com componentes do Kaz. É o melhor exemplo de uso real da biblioteca.
-
-```bash
-npm run site:dev
-```
+A landing page de apresentação da Bloo fica no repositório [silvestrev/bloo-web](https://github.com/silvestrev/bloo-web) e consome o Kaz pelo GitHub Packages. É o melhor exemplo de uso real da biblioteca.
 
 ## Desenvolvimento local
 
@@ -431,8 +443,6 @@ npm run storybook
 | `npm run build` | Gera a biblioteca em `dist/` (ESM, CJS, tipos e CSS) |
 | `npm test` | Roda os testes (Vitest + Testing Library) |
 | `npm run typecheck` | Verifica os tipos com TypeScript |
-| `npm run site:dev` | Site da Bloo em modo desenvolvimento |
-| `npm run site:build` | Gera o site estático em `site/dist/` |
 
 ## Estrutura do projeto
 
@@ -469,21 +479,34 @@ kaz-design-system/
 6. Escreva ao menos um teste em `src/__tests__/` e uma história no Storybook com tema claro e escuro conferidos.
 7. Registre a mudança no `CHANGELOG.md`.
 
-## Publicação no npm
+## Publicação no GitHub Packages
 
-O pacote se chama `@bloo/kaz`. Antes da primeira publicação, crie a organização `bloo` no npm (ou troque o escopo em `package.json` para um que você já tenha).
+O pacote se chama `@silvestrev/kaz` e é publicado de forma privada no GitHub Packages (`publishConfig` no `package.json`).
 
-**Manual:**
+**Automática (recomendado):** atualize a versão, faça merge na `main` e publique uma *Release* no GitHub. O workflow `publish.yml` publica a versão do `package.json` usando o `GITHUB_TOKEN` do próprio repositório; não precisa criar segredo.
 
 ```bash
-npm login
 npm version patch   # ou minor / major
+git push --follow-tags
+```
+
+**Manual:** com um token que tenha `write:packages`:
+
+```bash
+npm login --scope=@silvestrev --registry=https://npm.pkg.github.com
 npm publish
 ```
 
 O `prepublishOnly` roda tipos, testes e build antes de publicar.
 
-**Automática:** crie o segredo `NPM_TOKEN` em **Settings → Secrets and variables → Actions** e publique uma *Release* no GitHub. O workflow `publish.yml` publica a versão do `package.json` com *provenance*.
+## Segurança do repositório
+
+- **Proteção da `main`**: as regras ficam em [`.github/rulesets/proteger-main.json`](.github/rulesets/proteger-main.json). Para aplicar, vá em **Settings → Rules → Rulesets → New ruleset → Import a ruleset** e escolha esse arquivo. Elas bloqueiam push direto, force push e exclusão da `main`, e exigem PR com o CI (`check`) verde e histórico linear (squash).
+- **CODEOWNERS**: toda mudança passa pelo dono do repositório.
+- **Dependabot**: atualizações semanais do npm e mensais das Actions, agrupadas para não lotar de PRs.
+- **CI com permissões mínimas**: os workflows só pedem o acesso de que precisam.
+
+Rulesets em repositório privado exigem o plano GitHub Pro (ou Team). No plano gratuito, as regras só valem em repositório público.
 
 ## Roadmap
 
@@ -495,4 +518,4 @@ O `prepublishOnly` roda tipos, testes e build antes de publicar.
 
 ## Licença
 
-[MIT](LICENSE) © Bloo
+Software proprietário. © 2026 Bloo. Todos os direitos reservados. Veja [LICENSE](LICENSE).
