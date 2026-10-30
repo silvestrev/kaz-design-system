@@ -12,7 +12,8 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "types": ["vitest/globals"]
+    "types": ["vitest/globals"],
+    "paths": { "@silvestrev/kaz": ["./src/index.ts"] }
   },
   "include": ["src", ".storybook"]
 }

@@ -220,3 +220,12 @@ describe('renderização básica', () => {
     expect(screen.getByText(/Mostrando/).textContent).toContain('1 a 10 de 25');
   });
 });
+
+describe('KazIcon', () => {
+  it('aplica o tamanho informado por cima do 1em padrão', () => {
+    const { container } = render(<Kaz.KazIcon name="heart" size={48} />);
+    const svg = container.querySelector('svg')!;
+    expect(svg.style.width).toBe('48px');
+    expect(svg.getAttribute('aria-hidden')).toBe('true');
+  });
+});

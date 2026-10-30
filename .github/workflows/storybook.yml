@@ -1,8 +1,7 @@
 name: Publicar Storybook
 
+# Manual: GitHub Pages em repositório privado exige plano pago do GitHub.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
