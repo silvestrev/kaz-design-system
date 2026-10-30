@@ -407,6 +407,14 @@ Inclui uma página inicial de exemplo completa em **Exemplos → Página inicial
 
 Para ativar a publicação: no GitHub, vá em **Settings → Pages → Build and deployment → Source** e escolha **GitHub Actions**.
 
+## Site da Bloo
+
+A pasta [`site/`](site/) tem a landing page de apresentação da Bloo, montada só com componentes do Kaz. É o melhor exemplo de uso real da biblioteca.
+
+```bash
+npm run site:dev
+```
+
 ## Desenvolvimento local
 
 ```bash
@@ -423,6 +431,8 @@ npm run storybook
 | `npm run build` | Gera a biblioteca em `dist/` (ESM, CJS, tipos e CSS) |
 | `npm test` | Roda os testes (Vitest + Testing Library) |
 | `npm run typecheck` | Verifica os tipos com TypeScript |
+| `npm run site:dev` | Site da Bloo em modo desenvolvimento |
+| `npm run site:build` | Gera o site estático em `site/dist/` |
 
 ## Estrutura do projeto
 
